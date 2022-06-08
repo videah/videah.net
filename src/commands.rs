@@ -25,7 +25,13 @@ pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
         "social" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/social.md"))),
         "intro" => Box::new(HtmlCommand::new(command, include_str!("../static/text/intro.html"))),
         "echo" => Box::new(EchoCommand::new(command)),
+        // Redirect Commands
         "twitter" => Box::new(RedirectCommand::new(command, "https://twitter.com/videah_")),
+        "github" => Box::new(RedirectCommand::new(command, "https://github.com/videah")),
+        "steam" => Box::new(RedirectCommand::new(command, "https://steamcommunity.com/id/videah")),
+        "ko-fi" => Box::new(RedirectCommand::new(command, "https://ko-fi.com/videah")),
+        // Help Command
+        "help" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/help.md"))),
         &_ => Box::new(UnknownCommand::new(command)),
     }
 }

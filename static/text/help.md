@@ -1,0 +1,5 @@
+ - help - display this help dialogue.
+ - echo - display a line of text.
+ - intro - display site welcome screen.
+ - social - display social command list.
+ - clear - clear the terminal screen.

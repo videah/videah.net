@@ -1,0 +1,15 @@
+<!-- This is a really nasty workaround until Dioxus lets us run code after rendering.-->
+<img src style="display: none;" onerror="
+    const input = document.querySelector('#current-input');
+    input.focus();
+
+    const callback = function(list, observer) {
+        const input = document.querySelector('#current-input');
+        input.focus();
+        input.scrollIntoView();
+    }
+
+    const terminal = document.querySelector('#elements');
+    const observer = new MutationObserver(callback);
+    observer.observe(terminal, { attributes: false, childList: true, subtree: false });
+"/>

@@ -1,0 +1,214 @@
+body {
+    background: #1D1F21 url("/static/images/background.png");
+    box-sizing: border-box;
+}
+
+#terminal {
+
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 2px;
+
+    margin: auto;
+
+    width: 724px;
+    height: 364px;
+
+    color: white;
+    background: #151515;
+    border-style: solid;
+    border-width: 6px;
+    border-color: #2d2d2d;
+
+    -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow:    0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+    box-shadow:         0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+
+    cursor: text;
+
+    font-size: 14px;
+    font-family: Hack, monospace;
+}
+
+@media only screen and (max-width: 768px) {
+    #terminal {
+        height: 100%;
+        width: 100%;
+        border-width: 0;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        display: none;
+    }
+
+    input {
+        font-size: 12px !important;
+    }
+}
+
+#terminal:hover {
+    border-color: #b73341;
+}
+
+#terminal .input {
+    min-width:      1em;
+    outline-color:  transparent;
+    border:         none;
+    display:        inline-block;
+}
+
+#terminal p {
+    margin:     0;
+    padding:    0;
+}
+
+.prompt {
+    float: left;
+}
+
+#hostname {
+    color: white;
+    background-color: #b73341;
+}
+
+#hblock {
+    color: #b73341;
+    background-color: #3a3a3a;
+}
+
+#fs {
+    background-color: #3a3a3a;
+}
+
+#fsblock {
+    color: #3a3a3a;
+    background-color: #1c1c1c;
+}
+
+#padding {
+    overflow: hidden;
+    width: 100%;
+    background-color: #1c1c1c;
+}
+
+#intro {
+    text-align: center;
+    padding-top: 53px;
+    padding-bottom: 40px;
+    width: 100%
+}
+
+#intro-text {
+    padding-top: 25px;
+}
+
+#logo {
+    background: #d24a4a;
+    border-radius: 50%;
+    width: 184px;
+    height: 184px;
+    display: block;
+    margin: auto auto;
+}
+
+#credit {
+    float: right;
+    padding-right: 4px;
+    padding-top: 2px;
+    color: #646464;
+}
+
+#credit > a {
+    color: #d24a4a;
+}
+
+#input-span {
+    display: block;
+    overflow: hidden;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    font-family: Hack, monospace;
+}
+
+footer > p {
+    margin: 8px;
+}
+
+input {
+    border: none;
+    background: transparent;
+    resize: none;
+    outline: none;
+    font-family: Hack, monospace;
+    color: white;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+    -webkit-animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -o-animation: fadeIn 0.5s;
+    -ms-animation: fadeIn 0.5s;
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

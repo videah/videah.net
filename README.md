@@ -10,6 +10,6 @@ functionality. This didn't just make it hard to add new features, it made it *bo
 
 This rewrite is intended to make adding stuff to my site both easy and fun because it's written in
 a language I actually enjoy using. This was accomplished by using the Rust UI framework [Dioxus](https://github.com/dioxuslabs/dioxus)
-which I just really nice to work with.
+which I just find really nice to work with.
 
 The typeface used is [Hack](https://sourcefoundry.org/hack) by Source Foundry

@@ -19,6 +19,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
+        name: Set up wasm target
+        run: rustup target add wasm32-unknown-unknown
+      -
         name: Set up Trunk
         uses: jetli/trunk-action@v0.1.0
       -

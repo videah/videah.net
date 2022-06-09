@@ -23,4 +23,4 @@ jobs:
         uses: jetli/trunk-action@v0.1.0
       -
         name: Build and Pack
-        run: /root/.cargo/bin/trunk build --release
+        run: trunk build --release

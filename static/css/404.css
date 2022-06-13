@@ -1,0 +1,52 @@
+
+html {
+    font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+}
+
+.center {
+    margin: auto;
+    width: fit-content;
+    max-width: 512px;
+}
+
+img {
+    max-width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 14px 28px;
+    text-align: center;
+    background: #b73341;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+input:hover {
+    background: #d24a4a;
+
+}
+
+input:active {
+    background: #b73341;
+}
+
+figure {
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+}
+
+#credit {
+    font-weight: bold;
+    color: #d24a4a;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background: #2d2d2d;
+        color: white;
+    }
+}

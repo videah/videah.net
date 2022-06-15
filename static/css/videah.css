@@ -120,14 +120,17 @@ body {
     margin: auto auto;
 }
 
-#credit {
-    float: right;
+#intro-credit {
     padding-right: 4px;
     padding-top: 2px;
+    float: right;
+}
+
+.credit {
     color: #646464;
 }
 
-#credit > a {
+.credit > a {
     color: #d24a4a;
 }
 
@@ -161,6 +164,16 @@ input {
     padding: 0;
     margin: 0;
     width: 100%;
+}
+
+.image-model {
+    width: 250px;
+    height: 250px;
+    padding: 16px;
+}
+
+.image-model > img {
+    border-radius: 8px;
 }
 
 .fade-in {

@@ -3,3 +3,4 @@
  - intro - display site welcome screen.
  - social - display social command list.
  - clear - clear the terminal screen.
+ - 3d-fursona - render my fursona using AR (iOS and iPadOS only)

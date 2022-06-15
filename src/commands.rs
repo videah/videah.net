@@ -3,9 +3,11 @@ pub mod unknown;
 pub mod markdown;
 pub mod redirect;
 pub mod html;
+pub mod arviewer;
 
 use dioxus::prelude::*;
 use dyn_clonable::*;
+use crate::commands::arviewer::ARCommand;
 
 use crate::commands::html::HtmlCommand;
 use crate::commands::markdown::MarkdownCommand;
@@ -25,6 +27,7 @@ pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
         "social" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/social.md"))),
         "intro" => Box::new(HtmlCommand::new(command, include_str!("../static/text/intro.html"))),
         "echo" => Box::new(EchoCommand::new(command)),
+        "3d-fursona" => Box::new(ARCommand::new(command, "videah", Some("Kurenai_Chi"))),
         // Redirect Commands
         "twitter" => Box::new(RedirectCommand::new(command, "https://twitter.com/videah_")),
         "github" => Box::new(RedirectCommand::new(command, "https://github.com/videah")),

@@ -1,10 +1,13 @@
 ARG TRUNK_BINARY="https://github.com/thedodd/trunk/releases/download/v0.15.0/trunk-x86_64-unknown-linux-gnu.tar.gz"
 ARG TARGETPLATFORM
 
+# Version of caddy to be used for hosting
+ARG CADDY_VERSION=2.6.1
+
 # This Dockerfile uses cargo-chef to allow for multi-stage builds.
 # By doing it this way we don't need to compile dependencies every single time we want to create an image.
 
-FROM lukemathwalker/cargo-chef:latest-rust-1.61.0 AS chef
+FROM lukemathwalker/cargo-chef:latest-rust-1.64.0 AS chef
 WORKDIR app
 
 FROM chef as trunker
@@ -41,6 +44,17 @@ COPY --from=trunker $CARGO_HOME/bin $CARGO_HOME/bin
 RUN rustup target add wasm32-unknown-unknown
 RUN trunk build --release
 
-FROM nginx:alpine AS runtime
+FROM caddy:${CADDY_VERSION}-builder AS embedder
+RUN git clone https://github.com/mholt/caddy-embed.git && cd caddy-embed && git checkout 6bbec9d
+WORKDIR caddy-embed
+COPY --from=builder /app/dist files
+COPY 404.html files
+
+# Build a custom caddy binary with the site's files embedded.
+# This is so we can serve the site straight from memory.
+RUN xcaddy build --with github.com/mholt/caddy-embed=.
+
+FROM caddy:${CADDY_VERSION}-alpine AS runtime
 WORKDIR app
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=embedder /usr/bin/caddy-embed/caddy /usr/bin/caddy

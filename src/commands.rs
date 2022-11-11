@@ -30,6 +30,8 @@ pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
         "3d-fursona" => Box::new(ARCommand::new(command, "videah", Some("Kurenai_Chi"))),
         // Redirect Commands
         "twitter" => Box::new(RedirectCommand::new(command, "https://twitter.com/videah_")),
+        "mastodon" => Box::new(RedirectCommand::new(command, "https://meow.social/@videah")),
+        "cohost" => Box::new(RedirectCommand::new(command, "https://www.cohost.org/videah")),
         "github" => Box::new(RedirectCommand::new(command, "https://github.com/videah")),
         "steam" => Box::new(RedirectCommand::new(command, "https://steamcommunity.com/id/videah")),
         "ko-fi" => Box::new(RedirectCommand::new(command, "https://ko-fi.com/videah")),

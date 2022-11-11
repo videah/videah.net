@@ -16,7 +16,7 @@ impl MarkdownCommand {
 
 impl Command for MarkdownCommand {
     fn execute(&mut self) {
-        self.html = markdown::to_html(&self.markdown);
+        self.html = markdown::to_html(self.markdown);
     }
 
     fn render(&self) -> LazyNodes {

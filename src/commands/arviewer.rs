@@ -65,7 +65,7 @@ impl Command for ARCommand {
                 }
             }
         } else {
-            return rsx !{
+            return rsx! {
                 p { "This command is only supported on iPhone and iPad for now :("}
             }
         }

@@ -90,7 +90,7 @@ fn app(cx: Scope) -> Element {
                         onkeydown: move |evt| {
                             if evt.key == "Enter" {
                                 let command = input_value.get();
-                                let args = command.split(" ").collect::<Vec<&str>>();
+                                let args = command.split(' ').collect::<Vec<&str>>();
                                 if args[0] == "clear" {
                                     elements.make_mut().clear();
                                 } else {

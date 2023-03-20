@@ -4,7 +4,6 @@ body {
 }
 
 #terminal {
-
     overflow: hidden;
 
     position: absolute;
@@ -27,13 +26,23 @@ body {
     border-color: #2d2d2d;
 
     -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
-    -moz-box-shadow:    0px 0px 24px 0px rgba(0, 0, 0, 0.36);
-    box-shadow:         0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
 
     cursor: text;
 
     font-size: 14px;
     font-family: Hack, monospace;
+}
+
+#github {
+    color: #d33c4b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#github:hover {
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 768px) {
@@ -60,15 +69,15 @@ body {
 }
 
 #terminal .input {
-    min-width:      1em;
-    outline-color:  transparent;
-    border:         none;
-    display:        inline-block;
+    min-width: 1em;
+    outline-color: transparent;
+    border: none;
+    display: inline-block;
 }
 
 #terminal p {
-    margin:     0;
-    padding:    0;
+    margin: 0;
+    padding: 0;
 }
 
 .prompt {
@@ -202,26 +211,46 @@ input {
 }
 
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

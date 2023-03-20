@@ -110,7 +110,8 @@ fn app(cx: Scope) -> Element {
         },
         footer {
             class: "fade-in",
-            p { "Built with {rustc}" }
+            p { "Source code available on " a { id: "github",  href: "https://github.com/videah/videah.net", "GitHub" } },
+            p { "Built with {rustc}" },
         }
     })
 }

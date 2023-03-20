@@ -3,6 +3,7 @@ extern crate core;
 mod commands;
 
 use dioxus::prelude::*;
+use dioxus_elements::input_data::keyboard_types::Key;
 use crate::commands::Command;
 use crate::commands::html::HtmlCommand;
 
@@ -33,7 +34,7 @@ fn prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
 }
 
 fn main() {
-    dioxus::web::launch(app);
+    dioxus_web::launch(app);
 }
 
 fn app(cx: Scope) -> Element {
@@ -88,7 +89,7 @@ fn app(cx: Scope) -> Element {
                         prevent_default: "oninput",
                         value: "{input_value}",
                         onkeydown: move |evt| {
-                            if evt.key == "Enter" {
+                            if evt.key() == Key::Enter {
                                 let command = input_value.get();
                                 let args = command.split(' ').collect::<Vec<&str>>();
                                 if args[0] == "clear" {

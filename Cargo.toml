@@ -8,14 +8,15 @@ build = "build.rs"
 
 [dependencies]
 ansi-to-html = "0.1.0"
-dioxus = { version = "0.2.4", features = ["web", "fermi"] }
+dioxus = "0.3.1"
+dioxus-web = "0.3.1"
 dyn-clonable = "0.9.0"
 markdown = "0.3.0"
 wasm-bindgen = "0.2.81"
 web-sys = { version = "0.3.57", features = ["Location", "Window", "Element", "Document", "HtmlElement", "DomTokenList", "HtmlAnchorElement"] }
 
 [build-dependencies]
-built = "0.5"
+built = "0.6.0"
 
 [profile.release]
 lto = true

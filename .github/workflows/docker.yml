@@ -2,7 +2,8 @@ name: docker-hub-push
 
 on:
   push:
-    branches: [ "production" ]
+    tags:
+      - '*'
 
 jobs:
   docker:

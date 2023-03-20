@@ -4,10 +4,12 @@ pub mod markdown;
 pub mod redirect;
 pub mod html;
 pub mod arviewer;
+pub mod blank;
 
 use dioxus::prelude::*;
 use dyn_clonable::*;
 use crate::commands::arviewer::ARCommand;
+use crate::commands::blank::BlankCommand;
 
 use crate::commands::html::HtmlCommand;
 use crate::commands::markdown::MarkdownCommand;
@@ -23,7 +25,7 @@ pub trait Command: Clone {
 }
 
 pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
-    match args[0] {
+    match args[0].trim() {
         "social" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/social.md"))),
         "intro" => Box::new(HtmlCommand::new(command, include_str!("../static/text/intro.html"))),
         "echo" => Box::new(EchoCommand::new(command)),
@@ -38,6 +40,7 @@ pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
         "ko-fi" => Box::new(RedirectCommand::new(command, "https://ko-fi.com/videah")),
         // Help Command
         "help" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/help.md"))),
+        "" => Box::new(BlankCommand::new()),
         &_ => Box::new(UnknownCommand::new(command)),
     }
 }

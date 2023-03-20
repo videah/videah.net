@@ -14,7 +14,6 @@ impl RedirectCommand {
 }
 
 impl Command for RedirectCommand {
-
     fn execute(&mut self) {
         web_sys::window().unwrap().location().set_href(&self.redirect_url).expect("can't redirect");
     }

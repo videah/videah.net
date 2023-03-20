@@ -14,13 +14,12 @@ impl EchoCommand {
 }
 
 impl Command for EchoCommand {
-
     fn execute(&mut self) {
         let mut args = self.command_text.split(' ').collect::<Vec<&str>>();
         args.remove(0);
         let echo_string = args.join(" ");
         let ansi_string = echo_string.replace("\\x1b", "\x1b");
-        self.echo_text = ansi_to_html::convert_escaped(&ansi_string ).unwrap();
+        self.echo_text = ansi_to_html::convert_escaped(&ansi_string).unwrap();
     }
 
     fn render(&self) -> LazyNodes {

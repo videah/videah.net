@@ -23,7 +23,6 @@ impl ARCommand {
 }
 
 impl Command for ARCommand {
-
     fn execute(&mut self) {
         // Feature check to make sure AR is supported on the platform the user is using.
         let window = web_sys::window().unwrap();
@@ -37,8 +36,8 @@ impl Command for ARCommand {
     fn render(&self) -> LazyNodes {
         let name = &self.model_name;
         let render_credit = match &self.credit_username {
-            None => rsx!{ br {} },
-            Some(username) => rsx!{
+            None => rsx! { br {} },
+            Some(username) => rsx! {
                 p {
                     class: "credit",
                     "3D model by ",
@@ -50,8 +49,8 @@ impl Command for ARCommand {
             }
         };
 
-        if self.is_supported {
-            return rsx! {
+        return if self.is_supported {
+            rsx! {
                 br {},
                 p { "Tap the image to view {name} in three dee!"},
                 render_credit,
@@ -65,7 +64,7 @@ impl Command for ARCommand {
                 }
             }
         } else {
-            return rsx! {
+            rsx! {
                 p { "This command is only supported on iPhone and iPad for now :("}
             }
         }

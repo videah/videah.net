@@ -14,7 +14,6 @@ impl HtmlCommand {
 }
 
 impl Command for HtmlCommand {
-
     fn render(&self) -> LazyNodes {
         let text = self.html;
         rsx! {

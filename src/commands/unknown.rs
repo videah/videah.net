@@ -13,7 +13,6 @@ impl UnknownCommand {
 }
 
 impl Command for UnknownCommand {
-
     fn render(&self) -> LazyNodes {
         let text = &self.command_text;
         rsx! {

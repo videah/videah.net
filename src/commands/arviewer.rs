@@ -56,10 +56,10 @@ impl Command for ARCommand {
                 render_credit,
                 a {
                     rel: "ar",
-                    href: "static/models/{name}.usdz",
+                    href: "models/{name}.usdz",
                     img {
                         class: "image-model",
-                        src: "static/images/ar-previews/{name}.png"
+                        src: "images/ar-previews/{name}.png"
                     }
                 }
             }

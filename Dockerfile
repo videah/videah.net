@@ -2,12 +2,12 @@ ARG TRUNK_BINARY="https://github.com/thedodd/trunk/releases/download/v0.15.0/tru
 ARG TARGETPLATFORM
 
 # Version of caddy to be used for hosting
-ARG CADDY_VERSION=2.6.1
+ARG CADDY_VERSION=2.7.4
 
 # This Dockerfile uses cargo-chef to allow for multi-stage builds.
 # By doing it this way we don't need to compile dependencies every single time we want to create an image.
 
-FROM lukemathwalker/cargo-chef:latest-rust-1.67.0 AS chef
+FROM lukemathwalker/cargo-chef:latest-rust-1.72.1 AS chef
 WORKDIR app
 
 FROM chef as trunker

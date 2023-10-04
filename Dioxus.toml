@@ -1,0 +1,46 @@
+[application]
+# App name
+name = "videah-net"
+
+# The Dioxus platform to default to
+default_platform = "web"
+
+# `build` & `serve` output path
+out_dir = "dist"
+
+# The static resource path
+asset_dir = "static"
+
+[web.app]
+[web.watcher]
+
+# When watcher is triggered, regenerate the `index.html`
+reload_html = true
+
+# Which files or dirs will be monitored
+watch_path = ["src", "static"]
+
+# Include style or script assets
+[web.resource]
+
+# CSS style file
+style = [
+    "/css/videah.css",
+    "/fonts/hack.css",
+]
+
+# Javascript code file
+script = []
+
+[web.resource.dev]
+
+# Same as [web.resource], but for development servers
+
+# CSS style file
+style = []
+
+# JavaScript files
+script = []
+
+[[web.proxy]]
+backend = "http://localhost:8000/api/"

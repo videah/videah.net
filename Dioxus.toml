@@ -12,6 +12,10 @@ out_dir = "dist"
 asset_dir = "static"
 
 [web.app]
+
+# HTML title tag content
+title = ""
+
 [web.watcher]
 
 # When watcher is triggered, regenerate the `index.html`

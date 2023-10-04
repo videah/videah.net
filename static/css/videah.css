@@ -5,7 +5,6 @@ body {
 
 #terminal {
     overflow: hidden;
-
     position: absolute;
     top: 0;
     bottom: 0;
@@ -13,7 +12,6 @@ body {
     right: 0;
 
     padding: 2px;
-
     margin: auto;
 
     width: 724px;
@@ -23,16 +21,18 @@ body {
     background: #151515;
     border-style: solid;
     border-width: 6px;
-    border-color: #2d2d2d;
+    border-color: #b73341;
 
-    -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
-    -moz-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
-    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.36);
+    -webkit-box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.36);
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.36);
 
     cursor: text;
 
     font-size: 14px;
     font-family: Hack, monospace;
+
+    border-radius: 8px;
 }
 
 #github {
@@ -62,10 +62,6 @@ body {
     input {
         font-size: 12px !important;
     }
-}
-
-#terminal:hover {
-    border-color: #b73341;
 }
 
 #terminal .input {
@@ -122,7 +118,7 @@ body {
 
 #logo {
     background: #d24a4a;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     width: 184px;
     height: 184px;
     display: block;

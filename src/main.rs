@@ -92,10 +92,11 @@ fn app(cx: Scope) -> Element {
                             if evt.key() == Key::Enter {
                                 let command = input_value.get();
                                 let args = command.split(' ').collect::<Vec<&str>>();
-                                if args[0] == "clear" {
+                                let cmd = args[0].trim();
+                                if cmd == "clear" {
                                     elements.make_mut().clear();
                                 } else {
-                                    let mut command = commands::get_command_handler(args, command);
+                                    let mut command = commands::get_command_handler(&cx, args, command);
                                     command.execute();
                                     elements.make_mut().push(command);
                                 }

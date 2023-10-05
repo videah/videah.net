@@ -24,22 +24,47 @@ pub trait Command: Clone {
     fn text(&self) -> &String;
 }
 
-pub fn get_command_handler(args: Vec<&str>, command: &str) -> Box<dyn Command> {
-    match args[0].trim() {
+pub fn get_command_handler(cx: &ScopeState, args: Vec<&str>, command: &str) -> Box<dyn Command> {
+    let mut execute_analytics_event = true;
+
+    let eval = use_eval(&cx);
+    let cmd_text = args[0].trim();
+
+    let cmd: Box<dyn Command> = match cmd_text {
         "social" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/social.md"))),
         "intro" => Box::new(HtmlCommand::new(command, include_str!("../static/text/intro.html"))),
         "echo" => Box::new(EchoCommand::new(command)),
         "3d-fursona" => Box::new(ARCommand::new(command, "videah", Some("Kurenai_Chi"))),
         // Redirect Commands
-        "bsky" => Box::new(RedirectCommand::new(command, "https://bsky.app/profile/videah.net")),
-        "fursona" => Box::new(RedirectCommand::new(command, "https://refs.videah.net/videah/")),
-        "mastodon" => Box::new(RedirectCommand::new(command, "https://meow.social/@videah")),
-        "github" => Box::new(RedirectCommand::new(command, "https://github.com/videah")),
-        "steam" => Box::new(RedirectCommand::new(command, "https://steamcommunity.com/id/videah")),
-        "ko-fi" => Box::new(RedirectCommand::new(command, "https://ko-fi.com/videah")),
+        "bsky" | "fursona" | "mastodon" | "github" | "steam" | "ko-fi" => {
+            let url = match cmd_text {
+                "bsky" => "https://bsky.app/profile/videah.net",
+                "fursona" => "https://refs.videah.net/videah/",
+                "mastodon" => "https://meow.social/@videah",
+                "github" => "https://github.com/videah",
+                "steam" => "https://steamcommunity.com/id/videah",
+                "ko-fi" => "https://ko-fi.com/videah",
+                _ => unreachable!(), // This should never happen due to the pattern matching.
+            };
+            Box::new(RedirectCommand::new(command, url))
+        }
         // Help Command
         "help" => Box::new(MarkdownCommand::new(command, include_str!("../static/text/help.md"))),
-        "" => Box::new(BlankCommand::new()),
-        &_ => Box::new(UnknownCommand::new(command)),
+        "" => {
+            execute_analytics_event = false;
+            Box::new(BlankCommand::new())
+        },
+        _ => {
+            execute_analytics_event = false;
+            Box::new(UnknownCommand::new(command))
+        },
+    };
+
+    // If it's a known command, we send an analytics event to Umami.
+    if execute_analytics_event {
+        let event = format!("umami.track('Command Executed ({cmd_text})')");
+        eval(&event).unwrap();
     }
+
+    cmd
 }

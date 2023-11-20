@@ -1,4 +1,5 @@
 Enter one of these commands to redirect to one of my various places on the internet!
+ - **blog** - my blog where i occasionally post long-form stuff
  - **github** - my github where i put my projects (including this site)
  - **bsky** - my stream of consciousness, now on bluesky
  - **mastodon** - i don't use this very much

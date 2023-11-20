@@ -36,8 +36,9 @@ pub fn get_command_handler(cx: &ScopeState, args: Vec<&str>, command: &str) -> B
         "echo" => Box::new(EchoCommand::new(command)),
         "3d-fursona" => Box::new(ARCommand::new(command, "videah", Some("Kurenai_Chi"))),
         // Redirect Commands
-        "bsky" | "fursona" | "mastodon" | "github" | "steam" | "ko-fi" => {
+        "blog" | "bsky" | "fursona" | "mastodon" | "github" | "steam" | "ko-fi" => {
             let url = match cmd_text {
+                "blog" => "https://blog.videah.net",
                 "bsky" => "https://bsky.app/profile/videah.net",
                 "fursona" => "https://refs.videah.net/videah/",
                 "mastodon" => "https://meow.social/@videah",
